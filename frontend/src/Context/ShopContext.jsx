@@ -17,13 +17,16 @@ const ShopContextProvider = (props) => {
 
   const [allProducts, setAllProducts] = useState([]);
     const [cartItems, setCartItems] = useState(getDefaultCart());
-  
-    useEffect( () => {
-      fetch("http://localhost:4000/all-products")
-      .then((response)=> response.json())
-      .then((data)=> setAllProducts(data))
-    }, []);
 
+    useEffect(()=>{
+      const fetchData = async()=>{
+        const response = await fetch("http://localhost:4000/all-products");
+        const data = await response.json();
+        setAllProducts(data);
+      }
+
+      fetchData();
+    },[])
 
   const addToCart = (itemId) => {
     setCartItems((prev) => ({...prev, [itemId]: prev[itemId] + 1}));
