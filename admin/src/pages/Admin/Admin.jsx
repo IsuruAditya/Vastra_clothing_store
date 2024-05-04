@@ -1,0 +1,19 @@
+import React from 'react'
+import './admin.css'
+import Sidebar from '../../components/Sidebar/Sidebar'
+import { Routes, Route } from 'react-router-dom'
+import AddProduct from '../../components/AddProduct/AddProduct'
+import ListProduct from '../../components/ListProduct/ListProduct'
+const Admin = () => {
+  return (
+    <div className='admin'>
+<Sidebar/>
+<Routes>
+  <Route path='add-product' element={<AddProduct/>}/>
+  <Route path='all-products' element={<ListProduct/>}/>
+</Routes>
+    </div>
+  )
+}
+
+export default Admin
