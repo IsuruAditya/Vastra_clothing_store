@@ -1,6 +1,7 @@
 import React from "react";
 import "./CSS/loginsignup.css";
 import { useState } from "react";
+import Swal from "sweetalert2";
 const LoginSignUp = () => {
   const [state, setState] = useState("Login");
   const [formData,setFormData] = useState({
@@ -23,10 +24,30 @@ try{
 
 const data = await response.json();
 if(data.success){
+  
   localStorage.setItem("auth-token",data.token);
-  window.location.replace("/");
+  
+  Swal.fire({
+    icon: "success",
+    title: "Success",
+    text: "Login successful!",
+    showConfirmButton: false,
+    timer: 1500
+  })
+
+  setTimeout(() => {
+    window.location.replace("/");
+  }, 1500);
 } else{
-  alert(data.errors);
+  //alert(data.errors);
+  Swal.fire({
+    icon: "error",
+    title: "Error",
+    text:
+      data.errors || "Login failed",
+    confirmButtonText: "OK",
+    confirmButtonColor: "#d33",
+  });
 }
 
 }catch(error){
@@ -49,10 +70,28 @@ if(data.success){
 
 const data = await response.json();
 if(data.success){
+  Swal.fire({
+    icon: "success",
+    title: "Success",
+    text: "Sign up successful!",
+    showConfirmButton: false,
+    timer: 1500
+  })
   localStorage.setItem("auth-token",data.token);
-  window.location.replace("/");
+  setTimeout(() => {
+    window.location.replace("/");
+  }, 1500);
+  
 } else{
-  alert(data.errors);
+  //alert(data.errors);
+  Swal.fire({
+    icon: "error",
+    title: "Error",
+    text:
+      data.errors || "Sign up failed",
+    confirmButtonText: "OK",
+    confirmButtonColor: "#d33",
+  });
 }
 
 }catch(error){

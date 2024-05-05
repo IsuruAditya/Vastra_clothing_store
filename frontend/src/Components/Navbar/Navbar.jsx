@@ -5,6 +5,7 @@ import cart_icon from "../Assets/cart_icon.png";
 import { Link } from "react-router-dom";
 import { ShopContext } from "../../Context/ShopContext";
 import nav_dropdown from "../Assets/arrow-bottom.png"
+import Swal from "sweetalert2";
 
 const Navbar = () => {
   const [menu, setMenu] = useState("shop");
@@ -15,6 +16,20 @@ const Navbar = () => {
 menuRef.current.classList.toggle("nav-menu-visible");
 e.target.classList.toggle("open");
   }
+
+  const logout = () => {
+    localStorage.removeItem("auth-token")
+    Swal.fire({
+      icon: "success",
+      title: "Logged out!",
+      text: "You have been successfully logged out!",
+      showConfirmButton: false,
+      timer: 1500
+    })
+    setTimeout(() => {
+      window.location.replace("/");
+    }, 1500);
+  };
     
   return (
     <div className="navbar">
@@ -71,7 +86,7 @@ e.target.classList.toggle("open");
       </ul>
       <div className="nav-login-cart">
         {
-          localStorage.getItem("auth-token") ? <button onClick={()=>{localStorage.removeItem("auth-token"); window.location.replace("/")}}>Logout</button> :<Link to="/login"><button>Login</button></Link>
+          localStorage.getItem("auth-token") ? <button onClick={logout}>Logout</button> :<Link to="/login"><button>Login</button></Link>
         }
         <Link to="/cart">
           <img src={cart_icon} alt="cart" />

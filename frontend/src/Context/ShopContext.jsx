@@ -1,4 +1,5 @@
 import { createContext, useEffect, useState } from "react";
+import Swal from 'sweetalert2';
 export const ShopContext = createContext(null);
 
 const getDefaultCart = () => {
@@ -21,10 +22,38 @@ const ShopContextProvider = (props) => {
       setAllProducts(data);
     };
 
+    /* const fetchCart = async () => {
+      const response = await fetch("http://localhost:4000/cart",{
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "auth-token": `${localStorage.getItem("auth-token")}`,
+          "content-type": "application/json",
+        },
+        body:"",
+      });
+      const data = await response.json();
+      setCartItems(data);
+    }; */
+
+    const fetchCart = async () => {
+      const response = await fetch("http://localhost:4000/cart", {
+        method: "GET",
+        headers: {
+          Accept: "application/json",
+          "auth-token": `${localStorage.getItem("auth-token")}`,
+          "content-type": "application/json",
+        },
+      });
+      const data = await response.json();
+      setCartItems(data);
+    };
+
     fetchData();
+    (localStorage.getItem("auth-token")) && fetchCart();
   }, []);
 
-  const getData = async (endponit,itemId) => {
+  const manageData = async (endponit,itemId) => {
     try {
       const response = await fetch(`http://localhost:4000/${endponit}`, {
         method: "POST",
@@ -45,17 +74,43 @@ const ShopContextProvider = (props) => {
 
 
   const addToCart = (itemId) => {
-    setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
-    
-    (localStorage.getItem("auth-token")) && getData("add-to-cart",itemId);
+   
+    if (localStorage.getItem("auth-token")) {
+      setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
+      manageData("add-to-cart", itemId);
+      Swal.fire({
+        title: 'Success',
+        text: 'Item added to cart!',
+        icon: 'success',
+        timer: 1000,
+        showConfirmButton: false,
+      });
+    } else {
+      Swal.fire({
+        title: 'Login Required',
+        text: 'Please login first to add items to your cart.',
+        icon: 'warning',
+        showConfirmButton: true,
+      });
+    }
+     
       
      
   };
 
   const removeFromCart = (itemId) => {
-    setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
-
-    (localStorage.getItem("auth-token")) && getData("remove-from-cart",itemId);
+  
+    if (localStorage.getItem("auth-token")) {
+      setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
+      manageData("remove-from-cart", itemId);
+      Swal.fire({
+        title: 'Success',
+        text: 'Item removed from cart!',
+        icon: 'success',
+        timer: 1000,
+        showConfirmButton: false,
+      })
+    }
   };
 
   const getTotalCartAmount = () => {
