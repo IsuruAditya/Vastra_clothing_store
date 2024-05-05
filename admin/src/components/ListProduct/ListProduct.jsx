@@ -5,11 +5,12 @@ import Swal from "sweetalert2";
 const ListProduct = () => {
   const [allproducts, setAllproducts] = useState([]);
 
+
   const fetchInfo = async () => {
-    await fetch("http://localhost:4000/all-products")
-      .then((res) => res.json())
-      .then((data) => setAllproducts(data));
-  };
+    const response = await fetch("http://localhost:4000/all-products");
+    const data = await response.json();
+    setAllproducts(data);
+  }
 
   useEffect(() => {
     fetchInfo();
