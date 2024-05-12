@@ -8,7 +8,7 @@
   width: 75%;
   margin: auto;
   padding: 70px 140px;
-  margin-bottom: 150px;
+  margin-bottom: 60px;
   background: linear-gradient(180deg, #fde1ff, #e1ffea22 60%);
   gap: 30px;
 }
@@ -51,10 +51,17 @@
   cursor: pointer;
 }
 
+.newsletter div button:hover {
+  background: transparent;
+  color: black;
+  font-weight: 600;
+  border: 3px solid black;
+}
+
 @media (max-width: 1280px) {
   .newsletter {
     padding: 0px 80px;
-    margin-bottom: 120px;
+    margin-bottom: 50px;
     gap: 20px;
   }
   .newsletter h1 {
@@ -78,7 +85,7 @@
 
 @media (max-width: 1024px) {
   .newsletter {
-    margin-bottom: 60px;
+    margin-bottom: 40px;
   }
   .newsletter h1 {
     font-size: 30px;
@@ -131,7 +138,7 @@
   .newsletter {
     height: 25vh;
     width: 100%;
-    padding: 0px;
+    padding: 15px;
     gap: 15px;
   }
   .newsletter h1 {

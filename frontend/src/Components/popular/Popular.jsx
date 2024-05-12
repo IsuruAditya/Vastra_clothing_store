@@ -2,12 +2,12 @@ import React, { useEffect , useState} from 'react'
 import './popular.css'
 import Item from '../Items/Item'
 
-const Popular = () => {
+const Popular = (props) => {
   const [popularProducts, setPopularProducts] = useState([]);
   useEffect(()=>{
     const fetchData = async()=>{
       try{
-        const response = await fetch("http://localhost:4000/popular-in-women");
+        const response = await fetch(`http://localhost:4000/popular-in-${props.category}`);
         const data = await response.json();
         setPopularProducts(data);
         
@@ -19,7 +19,7 @@ const Popular = () => {
   },[])
   return (
     <div className='popular'>
-        <h1>POPULAR IN WOMEN</h1>
+        <h1>POPULAR IN {props.category}</h1>
         <hr />
         <div className="popular-item">
             {popularProducts.map((item,i)=>{

@@ -1,0 +1,265 @@
+.latest-collection{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* latestCollection.css */
+.banner-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  width:85%;
+  height: 300px;
+  margin: 30px auto;
+  border-radius: 20px;
+}
+
+.banner {
+  position: relative;
+  width: 100%;
+  height: 100%; /* Adjust height as needed */
+  background-image: url('../../Components/Assets/background2.jpg'); /* Background image */
+  background-size: cover;
+  background-position: center;
+  animation: kenBurns 18s infinite alternate;
+}
+
+.banner-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+}
+
+.banner-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white; /* Text color */
+  font-size: 30px; /* Adjust font size as needed */
+  font-weight: bold;
+  z-index: 1; /* Ensure text is on top of overlay */
+}
+
+
+
+
+  
+  .latest-collection-indexSort {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 85%;
+    margin: 30px auto;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .latest-collection-search {
+    position: relative;
+  }
+  
+  .latest-collection-search input[type="text"] {
+    width: 250px;
+    padding: 10px;
+    border: none;
+    border-radius: 25px;
+    background-color:#ccc;
+    font-size: 16px;
+    color: #333;
+    outline: none;
+  }
+  
+  .latest-collection-search button {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    background-color: transparent;
+    border: none;
+  
+  }
+  
+  .latest-collection-search button i {
+    color: #888;
+  }
+  
+  
+  /* Styling for the sort container */
+  .latest-collection-sort {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    font-size: 14px;
+    color: #555;
+  
+    padding: 10px;
+      border-radius: 40px;
+      border:none;
+      background-color: #ccc;
+  }
+  
+  /* Styling for the sort dropdown menu */
+  .latest-collection-sort select {
+    color: #555;
+    border: 1px solid #ccc;
+    border:none;
+    background-color: #ccc;
+    cursor: pointer;
+    outline: none;
+    border-radius: 30px;
+  }
+  
+  .latest-collection-sort select option {
+    padding: 5px;
+    color: #555; /* Text color */
+    background-color: #ccc; /* Background color of options */
+    border: none;
+    border-radius: 10px;
+  }
+  
+  .latest-collection-products{
+    justify-content: center;
+    margin: 20px 170px;
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    row-gap: 80px;
+  }
+
+  .latest-collection-pagination {
+    display: flex; /* Flexbox layout to arrange buttons */
+    justify-content: center; /* Center the buttons */
+    align-items: center; /* Align items vertically */
+    margin: 20px 0; /* Adjust margin to add spacing */
+  }
+  
+  .latest-collection-pagination button {
+    display: flex; /* Use flex display for button styling */
+    justify-content: center; /* Center content in the button */
+    align-items: center; /* Center content in the button */
+    width: 200px; /* Width of the button */
+    height: 69px; /* Height of the button */
+    border: none; /* Remove border */
+    outline: none; /* Remove outline */
+    border-radius: 75px; /* Add rounded corners */
+    background: #ededed; /* Background color */
+    color: #787878; /* Text color */
+    font-size: 18px; /* Font size */
+    font-weight: 500; /* Font weight */
+    cursor: pointer; /* Pointer cursor on hover */
+    margin: 0 10px; /* Add margin for spacing between buttons */
+  }
+  
+  /* Hover effect */
+  .latest-collection-pagination button:hover {
+    background-color: #d1d1d1; /* Slightly darker background on hover */
+  }
+  
+  /* Disabled state */
+  .latest-collection-pagination button:disabled {
+    background-color: #c3c3c3; /* Lighter gray for disabled buttons */
+    cursor: not-allowed; /* Not-allowed cursor for disabled buttons */
+  }
+  
+  @media(max-width: 1280px){
+   
+    .banner-container{
+      width: 80%;
+      height: 250px;
+      
+    }
+    .banner-text{
+      font-size: 24px;
+    }
+    .latest-collection-indexSort{
+      width: 80%;
+      margin: auto;
+    }
+    .latest-collection-sort{
+      font-size: 12px;
+    }
+    .latest-collection-indexSort p{
+      font-size: 12px;
+    }
+    .latest-collection-search input[type="text"]{
+      width: 200px;
+      font-size: 12px;
+    }
+    .latest-collection-products{
+      width: 90%;
+      margin: 10px auto;
+      row-gap: 40px;
+    }
+    .latest-collection-products .item{
+      margin:auto;
+    }
+    .latest-collection-pagination button{
+      width: 150px;
+      height: 60px;
+      font-size: 16px;
+    }
+  }
+  
+  @media(max-width: 1024px){
+    .latest-collection-search input[type="text"]{
+      width: 200px;
+    }
+    .banner-text{
+      font-size: 20px;
+    }
+  }
+  
+  @media(max-width: 800px){
+    .banner-container{
+      height: 150px;
+    }
+    .banner-text{
+      font-size: 18px;
+    }
+    .latest-collection-products{
+      width: 95%;
+    }
+    .latest-collection-search input[type="text"]{
+      width: 150px;
+      font-size: 12px;
+  
+    }
+    .latest-collection-indexSort p{
+      display: none;
+    }
+    .latest-collection-sort{
+      padding: 8px;
+      font-size: 12px;
+    }
+    
+    .latest-collection-pagination button{
+      width: 100px;
+      height: 40px;
+      font-size: 13px;
+    }
+  }
+  
+  @media(max-width: 500px){
+    .latest-collection-products{
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @keyframes kenBurns {
+    0% {
+      transform: scale(1) translate(0, 0);
+    }
+    100% {
+      transform: scale(1.2) translate(-2.5%, -2.5%);
+    }
+  }
+  

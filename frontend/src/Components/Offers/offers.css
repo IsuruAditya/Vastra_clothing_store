@@ -1,13 +1,15 @@
+/* Styling for the offers section */
 .offers {
   width: 65%;
-  display: flex;
   margin: auto;
   padding: 70px 140px;
-  margin-bottom: 150px;
-  margin-top: 150px;
+  margin-bottom: 50px;
+  margin-top: 50px;
   background: linear-gradient(180deg, #fde1ff, #e1ffea22 60%);
+  display: flex;
 }
 
+/* Styling for the left side of the offers section */
 .offers-left {
   flex: 1;
   display: flex;
@@ -20,11 +22,13 @@
   font-size: 80px;
   font-weight: 600;
 }
+
 .offers-left p {
   color: #171717;
   font-size: 22px;
   font-weight: 600;
 }
+
 .offers-left button {
   width: 282px;
   height: 70px;
@@ -36,8 +40,30 @@
   border: none;
   margin-top: 30px;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 
+/* Button hover effect */
+.offers-left button:hover {
+  font-weight: 600;
+  background: transparent; /* Make the background transparent */
+  color: #e86afe; /* Change text color to match original button background */
+  border: 3px solid #e86afe; /* Change border color to match original button background */
+}
+
+/* .link{
+  text-decoration: none;
+  color: white;
+}
+.link:hover{
+  color: #e86afe;
+} */
+
+.offers button Link:hover{
+  color: #e86afe;
+}
+
+/* Styling for the right side of the offers section */
 .offers-right {
   flex: 1;
   display: flex;
@@ -46,94 +72,97 @@
   padding-top: 50px;
 }
 
+/* Media queries for responsive design */
 @media (max-width: 1280px) {
   .offers {
-    padding: 0px 80px;
-    margin-bottom: 120px;
-    margin-top: 120px;
+      padding: 0px 80px;
+      margin-bottom: 45px;
+      margin-top: 45px;
   }
   .offers-left h1 {
-    font-size: 40px;
+      font-size: 40px;
   }
   .offers-left p {
-    font-size: 18px;
+      font-size: 18px;
   }
   .offers-right img {
-    width: 250px;
+      width: 250px;
   }
   .offers-left button {
-    width: 220px;
-    height: 50px;
-    font-size: 18px;
+      width: 220px;
+      height: 50px;
+      font-size: 18px;
   }
   .offers-right {
-    padding-top: 30px;
+      padding-top: 30px;
   }
 }
+
 @media (max-width: 1024px) {
   .offers {
-    padding: 30px 60px;
-    margin-bottom: 80px;
-    margin-top: 80px;
+      padding: 30px 60px;
+      margin-bottom: 40px;
+      margin-top: 40px;
   }
   .offers-left h1 {
-    font-size: 30px;
+      font-size: 30px;
   }
   .offers-left p {
-    font-size: 16px;
+      font-size: 16px;
   }
   .offers-right img {
-    width: 180px;
+      width: 180px;
   }
   .offers-left button {
-    width: 160px;
-    height: 40px;
-    font-size: 16px;
+      width: 160px;
+      height: 40px;
+      font-size: 16px;
   }
   .offers-right {
-    padding-top: 30px;
-    overflow: hidden;
+      padding-top: 30px;
+      overflow: hidden;
   }
 }
+
 @media (max-width: 800px) {
   .offers {
-    margin-top: 40px;
-    margin-bottom: 40px;
+      margin-top: 30px;
+      margin-bottom: 30px;
   }
   .offers-left h1 {
-    font-size: 22px;
+      font-size: 22px;
   }
   .offers-left p {
-    font-size: 13px;
+      font-size: 13px;
   }
   .offers-right img {
-    width: 130px;
+      width: 130px;
   }
   .offers-left button {
-    width: 140px;
-    height: 30px;
-    font-size: 12px;
+      width: 140px;
+      height: 30px;
+      font-size: 12px;
   }
 }
 
 @media (max-width: 500px) {
   .offers {
-    margin-top: 30px;
-    margin-bottom: 30px;
+      margin-top: 20px;
+      margin-bottom: 20px;
   }
   .offers-left h1 {
-    font-size: 16px;
+      font-size: 16px;
   }
   .offers-left p {
-    font-size: 10px;
+      font-size: 10px;
   }
   .offers-right img {
-    width: 110px;
+      width: 110px;
   }
   .offers-left button {
-    width: 120px;
-    height: 25px;
-    font-size: 10px;
-    margin-top: 12px;
+      width: 120px;
+      height: 25px;
+      font-size: 10px;
+      margin-top: 12px;
   }
 }

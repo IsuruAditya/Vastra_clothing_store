@@ -1,12 +1,18 @@
 .hero {
-  /* height: 100vh; */
-  background: linear-gradient(180deg, #fde1ff, #e1ffea22 60%);
+  background-size: cover;
+  background-position: center center;
+  background-image: url('../../Components/Assets/background3.jpg');
+ /*  background: linear-gradient(180deg, #fde1ff, #e1ffea22 60%); */
   display: flex;
   padding: 30px;
   padding-top: 60px;
   margin-bottom: 70px;
+  animation: kenBurnsEffectMedium 30s linear infinite;
+  
 }
-
+.hero-outer{
+  overflow: hidden;
+}
 .hero-left {
   flex: 1;
   display: flex;
@@ -20,11 +26,16 @@
   color: #090909;
   font-size: 26px;
   font-weight: 600;
+  margin-top: 20px;
+  display: flex;
+  align-items: end;
+  gap: 10px;
+
 }
 
 .hero-left p {
+  font-size: 70px;
   color: #171717;
-  font-size: 100px;
   font-weight: 700;
 }
 
@@ -36,6 +47,7 @@
 .hero-hand-icon img {
   width: 70px;
 }
+
 .hero-latest-btn {
   display: flex;
   justify-content: center;
@@ -45,10 +57,21 @@
   height: 70px;
   border-radius: 75px;
   margin-top: 30px;
-  background:#E86AFE;
+  background: #E86AFE; /* Original background color */
   color: white;
   font-size: 22px;
   font-weight: 500;
+  border:none; /* Initial border color */
+  transition: background 0.3s ease, transform 0.3s ease, color 0.3s ease; /* Smooth transitions */
+}
+
+/* Hover effect */
+.hero-latest-btn:hover {
+  font-weight: 600;
+  color: white; /* Keep text color white */
+  border: 2px solid white; /* Border with specified color and width */
+  transform: scale(1.05); /* Slightly increase the button size for scaling effect */
+  transition: transform 0.3s ease, border-color 0.3s ease; /* Smooth transition for scaling and border color change */
 }
 
 .hero-right {
@@ -60,7 +83,16 @@
 .hero-right img {
   width: 800px;
 }
+
+.hero-new-icon{
+  width: 90px;
+}
+
 @media(max-width: 1280px) {
+
+  .hero {
+    animation: kenBurnsEffectMedium 30s linear infinite;
+}
   .hero-left{
     padding-left: 100px;
 
@@ -82,11 +114,18 @@
     font-size: 18px;
   }
   .hero-right img{
-    width: 500px;
+    width: 600px;
+  }
+  .hero-new-icon{
+    width: 70px;
   }
 }
 
 @media(max-width: 1024px) {
+
+  .hero{
+    animation: kenBurnsEffectMedium 30s linear infinite;
+  }
   .hero-left{
     padding-left: 80px;
 
@@ -107,11 +146,18 @@
     font-size: 18px;
   }
   .hero-right img{
-    width: 400px;
+    width: 450px;
+  }
+  .hero-new-icon{
+    width: 60px;
   }
 }
 
 @media(max-width: 800px) {
+
+  .hero{
+    animation: kenBurnsEffectMedium 30s linear infinite;
+  }
  
   .hero-left{
     padding-left: 30px;
@@ -135,11 +181,14 @@
   .hero-right img{
     width: 380px;
   }
+  .hero-new-icon{
+    width: 50px;
+  }
 }
 
 @media(max-width: 500px) {
   .hero{
-    flex-direction: column;
+    animation: none;
   }
   .hero-right{
     display: none;
@@ -160,4 +209,32 @@
     height: 45px;
     font-size: 14px;
   }
+
+  
+  
 }
+
+
+@keyframes kenBurnsEffectMedium {
+  0% {
+      background-size: 105%; /* Start with a slightly zoomed-in image */
+      background-position: top left;
+  }
+  100% {
+      background-size: 120%; /* Zoom in further */
+      background-position: bottom right;
+  }
+}
+
+@keyframes kenBurnsEffectSmall {
+  0% {
+    background-size: 105%; /* Start with a slight zoom */
+    background-position: center center; /* Start position at the center */
+}
+100% {
+    background-size: 110%; /* Slightly zoom in further */
+    background-position: top left; /* Move the image slightly to the top left */
+}
+}
+
+

@@ -274,6 +274,14 @@ app.get('/popular-in-women', async (req,res)=>{
   res.send(popular_in_women);
 })
 
+//creating endpoint for popular in men section
+app.get('/popular-in-men', async (req,res)=>{
+  let products = await Products.find({category:"men"});
+  let popular_in_men = products.slice(0,4);
+  console.log("popular in men fetched");
+  res.send(popular_in_men);
+})
+
 //Creating middleware to fetch user
 const fetchUser = async (req,res,next)=>{
   const token = req.header('auth-token');

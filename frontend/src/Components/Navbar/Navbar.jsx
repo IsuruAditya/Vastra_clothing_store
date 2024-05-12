@@ -45,7 +45,7 @@ e.target.classList.toggle("open");
           }}
         >
           {" "}
-          <Link style={{ textDecoration: "none" }} to="/">
+          <Link style={{ textDecoration: "none", color: "black" }} to="/">
             Shop
           </Link>
           {menu === "shop" && <hr />}
@@ -56,7 +56,7 @@ e.target.classList.toggle("open");
           }}
         >
           {" "}
-          <Link style={{ textDecoration: "none" }} to="/men">
+          <Link style={{ textDecoration: "none", color: "black" }} to="/men">
             Men
           </Link>
           {menu === "men" && <hr />}
@@ -67,7 +67,7 @@ e.target.classList.toggle("open");
           }}
         >
           {" "}
-          <Link style={{ textDecoration: "none" }} to="/women">
+          <Link style={{ textDecoration: "none", color: "black" }} to="/women">
             Women
           </Link>
           {menu === "women" && <hr />}
@@ -78,7 +78,7 @@ e.target.classList.toggle("open");
           }}
         >
           {" "}
-          <Link style={{ textDecoration: "none" }} to="/kids">
+          <Link style={{ textDecoration: "none", color: "black" }} to="/kids">
             Kids
           </Link>
           {menu === "kids" && <hr />}

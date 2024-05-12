@@ -1,0 +1,131 @@
+/* Base styling for the video banner */
+.video-banner {
+    position: relative;
+    width: 100%;
+    height: 70vh; /* Adjust the height as needed */
+    overflow: hidden;
+}
+
+/* Video background */
+.video-banner-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cover the whole area */
+    z-index: 1;
+}
+
+/* Dark overlay for contrast */
+.video-banner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust the opacity for your preference */
+    z-index: 2;
+}
+
+/* Content container */
+.video-banner-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%; /* Adjust width for smaller screens */
+    z-index: 3;
+}
+
+/* Typing text styling */
+.text-container {
+    flex: 1;
+    color: white;
+    font-size: 50px; /* Adjust font size for different screens */
+    padding: 10px;
+    text-align: left;
+}
+
+/* Button container */
+.button-container {
+    flex: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Call-to-action button */
+.cta-button {
+    padding: 12px 24px;
+    background-color: #E86AFE;
+    color: white;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Add a floating effect on hover */
+.cta-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(232, 106, 254, 0.3);
+    background-color: white;
+    color: #E86AFE;
+}
+
+/* Media queries */
+@media (max-width: 1024px) {
+    .text-container {
+        font-size: 24px;
+    }
+
+    .cta-button {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .text-container {
+        font-size: 20px;
+        padding: 10px;
+    }
+
+    .cta-button {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 500px) {
+    /* Adjust the content layout for smaller screens */
+    .video-banner{
+        width: 100%;
+        height: 50vh;
+    }
+    
+    .video-banner-content {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%; /* Make the content take up the full width */
+    }
+
+    .text-container,
+    .button-container {
+        margin: 10px 10px;
+        text-align: center;
+    }
+
+    .cta-button {
+        width: 100%; /* Adjust button width for smaller screens */
+        padding: 10px;
+        font-size: 12px;
+    }
+}
